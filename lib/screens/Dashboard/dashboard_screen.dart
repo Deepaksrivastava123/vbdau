@@ -65,7 +65,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                 ],
               ),
-              SizedBox(height: 4++0,),
+              SizedBox(height: 40,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
