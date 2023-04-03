@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vbdau/res/colors.dart';
 import 'package:vbdau/screens/AuthScreens/sign_up.dart';
+import 'package:vbdau/screens/Dashboard/dashboard_main.dart';
 
 import '../../components/round_button.dart';
 import '../../utils/utils.dart';
@@ -55,13 +56,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   labelText: 'Username',
                   labelStyle: TextStyle(
                       color: AppColors.themeColor, fontFamily: 'Avenir'),
-                  prefixIcon: Icon(
-                    Icons.person_2_sharp,
-                    color: AppColors.themeColor,
-                  ),
+                  // prefixIcon: Icon(
+                  //   Icons.person_2_sharp,
+                  //   color: AppColors.themeColor,
+                  // ),
                   focusedBorder: OutlineInputBorder(
                     borderSide:
-                    BorderSide(width: 1, color: AppColors.themeColor),
+                    BorderSide(width: 1, color: AppColors.blackColor),
                   ),
                 ),
                 onFieldSubmitted: (value) {
@@ -91,12 +92,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         hintText: 'Password',
                         hintStyle: TextStyle(
-                            color: AppColors.themeColor, fontFamily: 'Avenir'),
+                            color: AppColors.blackColor, fontFamily: 'Avenir'),
                         labelText: 'Password',
-                        prefixIcon: Icon(
-                          Icons.lock_clock_sharp,
-                          color: AppColors.themeColor,
-                        ),
+                        // prefixIcon: Icon(
+                        //   Icons.lock_clock_sharp,
+                        //   color: AppColors.themeColor,
+                        // ),
                         labelStyle: TextStyle(
                             color: AppColors.themeColor, fontFamily: 'Avenir'),
                         focusedBorder: OutlineInputBorder(
@@ -127,19 +128,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   title: 'Login',
                  // loading: auth.loading,
                   onPress: () {
-                    if (_emailController.text.isEmpty) {
-                      Utils.flushBarErrorMessages(
-                          'Please enter username', context);
-                    } else if (_passwordController.text.isEmpty) {
-                      Utils.flushBarErrorMessages(
-                          'Please enter password', context);
-                    } else {
-                      Map data = {
-                        "username": _emailController.text.toString(),
-                        "password": _passwordController.text.toString()
-                      };
-                     // auth.loginApi(data, context);
-                    }
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DashboardMain()));
+
                   }),
             ),
             SizedBox(
